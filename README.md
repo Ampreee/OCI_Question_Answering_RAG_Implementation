@@ -64,7 +64,7 @@ run main.py to run main genration.
                                                 │
                                                 ▼
                                         ┌────────────────────┐
-                                        │   Final Response 	 │
+                                        │ **Final Response** │
                                         │   Display answer   │
                                         │   to user          │
                                         └────────────────────┘
