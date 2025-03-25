@@ -12,63 +12,7 @@ run main.py to run main genration.
 
 ## **System Architecture**
 
-
-                                  ┌──────────────────────────────┐
-                                  │   **User Interaction**       │
-                                  │   User inputs a question     │
-                                  └──────────────────────────────┘
-                                                │
-                                                ▼
-                        ┌──────────────────────────────────────────────┐
-                        │   **Query Processing & Retrieval**           │
-                        │   Convert query to vector embeddings         │
-                        │   (Hugging Face)                             │ 
-                        └──────────────────────────────────────────────┘
-                                                │
-                                                ▼
-                                  ┌──────────────────────────┐
-                                  │  Search FAISS for Top-K  │
-                                  │  most similar documents  │
-                                  └──────────────────────────┘
-                                                │
-                                                ▼
-                        ┌──────────────────────────────────────────────┐
-                        │   **Document Processing & Indexing**         │
-                        │   Extract text from OCI PDFs (pypdf)         │
-                        └──────────────────────────────────────────────┘
-                                                │
-                                                ▼
-                    ┌─────────────────────────────────────────────────────────┐
-                    │   Split text into overlapping chunks                    │
-                    │   (langchain.text_splitter)                             │
-                    └─────────────────────────────────────────────────────────┘
-                                                │
-                                                ▼
-                        ┌───────────────────────────────────────────────────┐
-                        │   Convert chunks to vector embeddings             │
-                        └───────────────────────────────────────────────────┘
-                                                │
-                                                ▼
-                              ┌───────────────────────────────────┐
-                              │   Store embeddings in FAISS       │
-                              │   database                        │
-                              └───────────────────────────────────┘
-                                                │
-                                                ▼
-                            ┌──────────────────────────────────────────────┐
-                            │   **Answer Generation**                      │
-                            │   (LLaMA 3-8B-8192 via Groq API)             │
-                            │   Send retrieved chunks to LLaMA for         │
-                            │   answer synthesis                           │
-                            └──────────────────────────────────────────────┘
-                                                │
-                                                ▼
-                                        ┌────────────────────┐
-                                        │ **Final Response** │
-                                        │   Display answer   │
-                                        │   to user          │
-                                        └────────────────────┘
-
+![Rag implementation](https://github.com/user-attachments/assets/64763ba2-7920-4663-a1c9-110c37e23959)
 
 ## **Challenges**
 1.) First challenge,I got was that didn't had that much knowledge of of vector databases .So,had 
